@@ -89,7 +89,8 @@ import distutils_hack
 import ez_setup
 ez_setup.use_setuptools()
 
-from setuptools import setup, find_packages, Extension, Library
+from setuptools import setup, find_packages, Extension
+from setuptools.extension import Library
 
 from glob import glob
 import sys
@@ -108,7 +109,7 @@ except ImportError: # no config.py file found
         print "CMake build tool (http://www.cmake.org/) to configure. However,"
         print "CMake is not found in your system. Please install CMake before"
         print "running the setup file. "
-        print 
+        print
         print "Once CMake is installed, you can also manually configure PyOpenCV"
         print "by running the following commands:"
         print "    mkdir build"
@@ -116,7 +117,7 @@ except ImportError: # no config.py file found
         print "    cmake .."
         print "    cd .."
         sys.exit(-1)
-        
+
     print "Configuring PyOpenCV via CMake..."
     cur_dir = os.getcwd()
     new_dir = op.join(op.split(__file__)[0], 'build')
